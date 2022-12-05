@@ -1,4 +1,4 @@
-#라이브러리 import
+#사용하는 라이브러리 넣기
 import requests
 import pprint
 import json
@@ -16,9 +16,8 @@ response = requests.get(url)
 
 contents = response.text
 
-# 데이터 결과값 예쁘게 출력해주는 코드
+#json값 처리를 보기좋게 처리해줌
 pp = pprint.PrettyPrinter(indent=4)
-# print(pp.pprint(contents))
 
 ## json을 DataFrame으로 변환하기 ##
 
@@ -26,9 +25,8 @@ pp = pprint.PrettyPrinter(indent=4)
 json_ob = json.loads(contents)
 # print(type(json_ob)) #json타입 확인
 
-# 필요한 내용만 꺼내기
+# 사용할 데이터 이름값이고 추출하기 위해 사용
 body = json_ob['response']['body']['items']
-# print(body)
 
 # # Dataframe으로 만들기
 dataframe = pd.DataFrame(body)
@@ -43,7 +41,8 @@ finedust_v = dataframe['finedust_v']
 finedust_g = dataframe['finedust_g']
 co = dataframe['co']
 o3 = dataframe['o3']
-# # 바차트 올리기
+
+#streamlit의 라이브러리 github에서 마크다운형식으로 사용해줌
 st.title('공공데이터 시각화')
 st.write('공공데이터에 있는 에어코리아 대기오염정보에서 백마로(마두역)의 통합오염수치와 미세먼지농도/지수, 오존농도, 일산화탄소농도를 불러와 자료로 사용했습니다.')
 st.write('일산 백마로의 대기오염상태를 시각화하여 실시간으로 상태를 나타내 줍니다.')
