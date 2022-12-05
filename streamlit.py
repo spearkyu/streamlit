@@ -33,14 +33,14 @@ body = json_ob['response']['body']['items']
 # # Dataframe으로 만들기
 dataframe = pd.DataFrame(body)
 # # key 값 int으로 만들기
-dataframe['total'] = pd.to_numeric(dataframe['khaiValue'])
-dataframe['dust_v'] = pd.to_numeric(dataframe['pm10Value'])
-dataframe['dust_g'] = pd.to_numeric(dataframe['pm10Grade'])
+dataframe['integration'] = pd.to_numeric(dataframe['khaiValue'])
+dataframe['finedust_v'] = pd.to_numeric(dataframe['pm10Value'])
+dataframe['finedust_g'] = pd.to_numeric(dataframe['pm10Grade'])
 dataframe['co'] = pd.to_numeric(dataframe['coValue'])
 dataframe['o3'] = pd.to_numeric(dataframe['o3Value'])
-total = dataframe['total']
-dust_v = dataframe['dust_v']
-dust_g = dataframe['dust_g']
+integration = dataframe['integration']
+finedust_v = dataframe['finedust_v']
+finedust_g = dataframe['finedust_g']
 co = dataframe['co']
 o3 = dataframe['o3']
 # # 바차트 올리기
@@ -48,10 +48,10 @@ st.title('공공데이터 시각화')
 st.write('공공데이터에 있는 에어코리아 대기오염정보에서 백마로(마두역)의 통합오염수치와 미세먼지농도/지수, 오존농도, 일산화탄소농도를 불러와 자료로 사용했습니다.')
 st.write('일산 백마로의 대기오염상태를 시각화하여 실시간으로 상태를 나타내 줍니다.')
 st.header("미세먼지농도")
-st.bar_chart(dust_v)
+st.bar_chart(finedust_v)
 st.image(image1)
 st.header("미세먼지지수")
-st.bar_chart(dust_g)
+st.bar_chart(finedust_g)
 st.header("오존농도")
 st.bar_chart(o3)
 st.image(image2)
@@ -59,5 +59,5 @@ st.header("일산화탄소농도")
 st.bar_chart(co)
 st.image(image4)
 st.header("통합오염지수")
-st.bar_chart(total)
+st.bar_chart(integration)
 st.image(image3)
