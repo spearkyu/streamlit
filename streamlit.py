@@ -29,7 +29,7 @@ body = json_ob['response']['body']['items']
 # # Dataframe으로 만들기
 dataframe = pd.DataFrame(body)
 # # key 값 int으로 만들기
-dataframe['total'] = pd.to_numeric(dataframe['khaiValue'])
+# dataframe['total'] = pd.to_numeric(dataframe['khaiValue'])
 dataframe['dust'] = pd.to_numeric(dataframe['pm10Value'])
 time = dataframe['dataTime']
 total = dataframe['total']
