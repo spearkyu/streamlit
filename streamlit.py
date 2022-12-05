@@ -10,6 +10,7 @@ url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMes
 image1 = "https://github.com/spearkyu/streamlit/blob/main/dust_v.jpg?raw=true"
 image2 = "https://github.com/spearkyu/streamlit/blob/main/o3.png?raw=true"
 image3 = "https://github.com/spearkyu/streamlit/blob/main/total.jpg?raw=true"
+image4 = "https://github.com/spearkyu/streamlit/blob/main/co.jpg?raw=true"
 
 response = requests.get(url)
 
@@ -56,6 +57,7 @@ st.bar_chart(o3)
 st.image(image2)
 st.header("일산화탄소농도")
 st.bar_chart(co)
+st.image(image4)
 st.header("통합오염지수")
 st.bar_chart(total)
 st.image(image3)
